@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angel Toys 🧸</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%F0%9F%91%BC%3C/text%3E%3C/svg%3E">
+
+<style>
+:root {
+  --navy: #111936;
+  --pink: #ff79b9;
+  --blue: #54d5ff;
+  --yellow: #ffe27a;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: white;
+  background: var(--navy);
+  overflow-x: hidden;
+}
+
+/* Animated background made entirely with CSS */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 20%, #343e83, transparent 45%),
+    radial-gradient(ellipse at 85% 30%, #63316e, transparent 40%),
+    radial-gradient(ellipse at 50% 90%, #174b79, transparent 45%),
+    #111936;
+}
+
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 45% 55% 65% 35%;
+  filter: blur(3px);
+  opacity: .35;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+.blob:nth-child(1) {
+  background: var(--pink);
+  top: 10%;
+  left: -100px;
+}
+
+.blob:nth-child(2) {
+  background: var(--blue);
+  top: 45%;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+.blob:nth-child(3) {
+  background: #a68aff;
+  bottom: -100px;
+  left: 35%;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to { transform: translate(70px, -40px) rotate(35deg) scale(1.2); }
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--yellow);
+  font-size: 28px;
+  animation: sparkle 3s infinite ease-in-out;
+}
+
+.s1 { top: 18%; left: 15%; }
+.s2 { top: 42%; right: 12%; animation-delay: 1s; }
+.s3 { bottom: 18%; left: 20%; animation-delay: 2s; }
+.s4 { bottom: 30%; right: 25%; animation-delay: .5s; }
+
+@keyframes sparkle {
+  0%, 100% { opacity: .3; transform: scale(.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.3) rotate(25deg); }
+}
+
+.wrap {
+  width: min(1150px, 92%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13, 22, 55, .85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #ffffff20;
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
+  font-weight: 1000;
+  text-decoration: none;
+}
+
+.logo-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+}
+
+.logo-name {
+  background: linear-gradient(90deg, #ff8bc3, #ffe27a, #54d5ff, #c6a5ff);
+  background-size: 250%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: colors 6s linear infinite;
+}
+
+@keyframes colors {
+  to { background-position: 250%; }
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .25s;
+}
+
+nav a:hover {
+  color: var(--yellow);
+  transform: translateY(-3px);
+}
+
+.ar {
+  display: block;
+  direction: rtl;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: .9em;
+  color: #cbd8ff;
+  margin-top: 5px;
+}
+
+.hero {
+  min-height: 570px;
+  padding: 65px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.pill {
+  display: inline-block;
+  background: #ffffff18;
+  border: 1px solid #ffffff25;
+  padding: 10px 15px;
+  border-radius: 30px;
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 25px 0;
+}
+
+h1 span {
+  display: block;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: colors 5s infinite alternate;
+}
+
+.hero p {
+  line-height: 1.9;
+  font-size: 18px;
+  color: #e0e7ff;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+.primary {
+  background: var(--pink);
+  color: #251337;
+  box-shadow: 0 6px 0 #b64d87;
+}
+
+.secondary {
+  background: #ffffff12;
+  color: white;
+  border: 1px solid #ffffff35;
+}
+
+.toy-show {
+  position: relative;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #ff8cc333, #54d5ff25);
+  border: 1px solid #ffffff35;
+  border-radius: 40px;
+  backdrop-filter: blur(12px);
+  animation: bob 4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
+}
+
+.big-toy {
+  font-size: 145px;
+  filter: drop-shadow(0 20px 12px #0004);
+}
+
+.floating-toy {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  background: white;
+  color: #222;
+  border-radius: 20px;
+  font-size: 32px;
+  box-shadow: 0 10px 25px #0003;
+  animation: bob 3s infinite ease-in-out;
+}
+
+.ft1 { top: 10%; left: 8%; }
+.ft2 { top: 18%; right: 8%; animation-delay: .5s; }
+.ft3 { bottom: 12%; left: 12%; animation-delay: 1s; }
+.ft4 { bottom: 10%; right: 10%; animation-delay: 1.5s; }
+
+section {
+  padding: 65px 0;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 35px;
+}
+
+.small-title {
+  color: var(--yellow);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin: 12px 0;
+}
+
+.section-title p {
+  line-height: 1.8;
+  color: #d7e0ff;
+}
+
+.toy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #ffffff25;
+  border-radius: 24px;
+  background: rgba(19, 30, 71, .82);
+  backdrop-filter: blur(12px);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--pink);
+  box-shadow: 0 20px 40px #0003;
+}
+
+.card-image {
+  height: 210px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffc0df, #a8eaff);
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.card p {
+  color: #d9e1ff;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 7px 11px;
+  border-radius: 30px;
+  background: #ffffff13;
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  padding: 25px;
+  border-radius: 22px;
+  border: 1px solid #ffffff20;
+  background: #ffffff0d;
+}
+
+.feature-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.feature p {
+  line-height: 1.7;
+  color: #d7e0ff;
+}
+
+.contact-box {
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid #ffffff30;
+  background: linear-gradient(120deg, #ff79b933, #54d5ff24);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.contact-box p {
+  line-height: 1.8;
+  color: #e0e7ff;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 0;
+  color: #bfcaf0;
+  border-top: 1px solid #ffffff1a;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: -50px;
+  left: -50px;
+  width: 30px;
+  height: 40px;
+  z-index: 100;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 4px #0008);
+}
+
+.custom-cursor svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (pointer: coarse) {
+  .custom-cursor { display: none; }
+}
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .toy-grid { grid-template-columns: repeat(2, 1fr); }
+  .features { grid-template-columns: 1fr; }
+  .contact-box { flex-direction: column; align-items: flex-start; }
+  .toy-show { min-height: 330px; }
+}
+
+@media (max-width: 520px) {
+  .toy-grid { grid-template-columns: 1fr; }
+  .nav { align-items: flex-start; }
+  nav { gap: 12px; }
+  .big-toy { font-size: 115px; }
+  .contact-box { padding: 25px; }
+}
+</style>
+</head>
+
+<body>
+<div class="background">
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <span class="sparkle s1">✦</span>
+  <span class="sparkle s2">✧</span>
+  <span class="sparkle s3">✦</span>
+  <span class="sparkle s4">✧</span>
+</div>
+
+<div class="custom-cursor" id="cursor">
+  <svg viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="split" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="50%" stop-color="#ff79b9"/>
+        <stop offset="50%" stop-color="#54d5ff"/>
+      </linearGradient>
+    </defs>
+    <path d="M3 2 L3 31 L11 23 L17 38 L23 35 L17 20 L28 20 Z"
+      fill="url(#split)" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home">
+      <span class="logo-icon">👼</span>
+      <span class="logo-name">Angel Toys</span>
+    </a>
+    <nav>
+      <a href="#home">Home <span class="ar">الرئيسية</span></a>
+      <a href="#story">Our Story <span class="ar">حكايتنا</span></a>
+      <a href="#toys">Our Toys <span class="ar">ألعابنا</span></a>
+      <a href="#learning">Why Us? <span class="ar">ليه إحنا؟</span></a>
+      <a href="#contact">Contact 💌</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="pill">🌈 PLAY • IMAGINE • GROW ✨</div>
+      <h1>Little toys,<span>BIG smiles!</span></h1>
+      <p>Welcome to Angel Toys — a happy world full of color, imagination, and playful discoveries. Let's make every day magical!</p>
+      <span class="ar">أهلًا بيكم في Angel Toys، عالم مليان ألوان وخيال واكتشافات حلوة. يلا نخلي كل يوم مليان فرحة ومغامرات!</span>
+      <div class="buttons">
+        <a class="btn primary" href="#toys">Explore the toys 🧸</a>
+        <a class="btn secondary" href="#story">Meet Angel Toys ✨</a>
+      </div>
+    </div>
+
+    <div class="toy-show">
+      <div class="big-toy">🧸</div>
+      <div class="floating-toy ft1">⭐</div>
+      <div class="floating-toy ft2">🚗</div>
+      <div class="floating-toy ft3">🧩</div>
+      <div class="floating-toy ft4">🎨</div>
+    </div>
+  </div>
+
+  <section id="story">
+    <div class="wrap">
+      <div class="section-title">
+        <div class="small-title">A little about us</div>
+        <h2>Every toy starts a story 💫</h2>
+        <p>At Angel Toys, playtime is a chance to imagine, discover, and make wonderful memories.</p>
+        <span class="ar">في Angel Toys اللعب فرصة للخيال والاكتشاف وصناعة ذكريات جميلة.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="toys">
+    <div class="wrap">
+      <div class="section-title">
+        <div class="small-title">Pick your happy</div>
+        <h2>Our Toy Wonderland 🪄</h2>
+        <p>Meet some of our favorite playtime pals. Which one would you take on an adventure?</p>
+        <span class="ar">اتعرفوا على أصحاب وقت اللعب المفضلين عندنا. مين هتاخدوه معاكم في مغامرة؟</span>
+      </div>
+
+      <div class="toy-grid">
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=900&q=85" alt="Teddy bear" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Snuggly Friends 🧸</h3>
+            <p>Super-soft friends for hugs, stories, and cozy naps.</p>
+            <span class="ar">أصحاب ناعمين للحضن والحكايات والنوم الهادي.</span>
+            <span class="tag">HUGS & LOVE</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1599623560574-39d485900c95?auto=format&fit=crop&w=900&q=85" alt="Building blocks" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Build & Create 🧱</h3>
+            <p>Colorful blocks for building big ideas one piece at a time.</p>
+            <span class="ar">مكعبات ملونة لبناء أفكار كبيرة حتة حتة.</span>
+            <span class="tag">IMAGINATION TIME</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=900&q=85" alt="Toy cars" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Zoom Zoom Cars 🚗</h3>
+            <p>Little cars for big races and exciting adventures.</p>
+            <span class="ar">عربيات صغيرة لسباقات ومغامرات كبيرة.</span>
+            <span class="tag">READY, SET, PLAY!</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=900&q=85" alt="Pretend play toys" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Make-Believe Magic 🎀</h3>
+            <p>Playful moments where every child can tell their own story.</p>
+            <span class="ar">لحظات لعب خيالي وكل طفل يحكي حكايته بطريقته.</span>
+            <span class="tag">LET'S PRETEND</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1606509036992-7d3a49b3b6c8?auto=format&fit=crop&w=900&q=85" alt="Puzzle pieces" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Puzzle Pals 🧩</h3>
+            <p>Fun challenges that help curious minds explore and solve.</p>
+            <span class="ar">تحديات ممتعة بتساعد الأطفال يكتشفوا ويفكروا.</span>
+            <span class="tag">THINK & PLAY</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85" alt="Art supplies" loading="lazy">
+          </div>
+          <div class="card-content">
+            <h3>Little Artists 🎨</h3>
+            <p>Colors and creative fun for tiny artists with huge ideas.</p>
+            <span class="ar">ألوان ومرح إبداعي لفنانين صغيرين بأفكار كبيرة.</span>
+            <span class="tag">MAKE SOMETHING</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="learning">
+    <div class="wrap">
+      <div class="section-title">
+        <div class="small-title">Play with purpose</div>
+        <h2>More than just a toy 💖</h2>
+        <p>We believe the best playtime is full of smiles, discovery, and room to be yourself.</p>
+        <span class="ar">أحلى وقت لعب هو اللي مليان ضحك واكتشاف وفرصة لكل طفل يكون على طبيعته.</span>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🌟</div>
+          <h3>Big Imagination</h3>
+          <p>Little toys can inspire the biggest ideas.</p>
+          <span class="ar">ألعاب صغيرة ممكن تلهم أفكار كبيرة.</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🫶</div>
+          <h3>Happy Moments</h3>
+          <p>Made for sharing smiles with family and friends.</p>
+          <span class="ar">علشان نشارك الضحكة مع العيلة والأصحاب.</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌱</div>
+          <h3>Growing Through Play</h3>
+          <p>Every game is a new chance to learn something.</p>
+          <span class="ar">كل لعبة فرصة جديدة نتعلم فيها حاجة.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <h2>Let's make playtime magical! ✨</h2>
+          <p>Have a question or want to know more about Angel Toys? We'd love to hear from you!</p>
+          <span class="ar">عندكم سؤال أو حابين تعرفوا أكتر عن Angel Toys؟ يسعدنا تتواصلوا معانا!</span>
+        </div>
+        <a class="btn primary" href="mailto:hello@angeltoys.example">Contact us 💌</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Made with 💗 and a little bit of magic · © <span id="year"></span> Angel Toys
+</footer>
+
+<script>
+const cursor = document.getElementById("cursor");
+
+window.addEventListener("mousemove", function(event) {
+  cursor.style.left = (event.clientX + 2) + "px";
+  cursor.style.top = (event.clientY + 2) + "px";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
